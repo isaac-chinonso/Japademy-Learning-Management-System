@@ -89,7 +89,7 @@
                         class="ph ph-list"></i></button>
                 <!-- Toggle Button End -->
 
-                <h4>{{ Auth::user()->profile->first()->lname }} Welcome – let’s jump back in.</h4>
+                <h4>{{ Auth::user()->profile->first()->fname }} Welcome – let’s jump back in.</h4>
             </div>
 
             <div class="flex-align gap-16">
@@ -169,18 +169,18 @@
                         <div class="col-xxl-6 col-lg-6 col-sm-6">
                             <div class="card border border-gray-100">
                                 <div class="card-body p-8">
-                                    <a href="course-details.html" class="bg-main-100 rounded-8 overflow-hidden text-center mb-8 h-164 flex-center p-8">
+                                    <a href="#" class="bg-main-100 rounded-8 overflow-hidden text-center mb-8 h-164 flex-center p-8">
                                         <img src="assets-user/images/thumbs/course-img9.png" alt="Course Image">
                                     </a>
                                     <div class="p-8">
-                                        <h5 class="mb-0"><a href="course-details.html" class="hover-text-main-600">Take a Skill Assessment</a></h5>
+                                        <h5 class="mb-0"><a href="#" class="hover-text-main-600">Take a Skill Assessment</a></h5>
 
                                         <div class="flex-align gap-8 flex-wrap mt-16">
                                             <p>Discover your strengths with our AI-powered skill assessment. Get a clear picture of where you stand and receive personalized program recommendations to advance your career.</p>
                                         </div><br><br><br>
 
                                         <div class="flex-between gap-4 flex-wrap mt-24">
-                                            <a href="course-details.html" class="btn btn-outline-main rounded-pill py-9">Start My Skill Assessment</a>
+                                            <a href="{{ url('/start-skill-assessment') }}" class="btn btn-outline-main rounded-pill py-9">Start My Skill Assessment</a>
                                         </div>
                                     </div>
                                 </div>
@@ -189,11 +189,11 @@
                         <div class="col-xxl-6 col-lg-6 col-sm-6">
                             <div class="card border border-gray-100">
                                 <div class="card-body p-8">
-                                    <a href="course-details.html" class="bg-main-100 rounded-8 overflow-hidden text-center mb-8 h-164 flex-center p-8">
+                                    <a href="#" class="bg-main-100 rounded-8 overflow-hidden text-center mb-8 h-164 flex-center p-8">
                                         <img src="assets-user/images/thumbs/course-img6.png" alt="Course Image">
                                     </a>
                                     <div class="p-8">
-                                        <h5 class="mb-0"><a href="course-details.html" class="hover-text-main-600">Apply for a Scholarship</a></h5>
+                                        <h5 class="mb-0"><a href="#" class="hover-text-main-600">Apply for a Scholarship</a></h5>
 
                                         <div class="flex-align gap-8 flex-wrap mt-16">
                                             <p>Unlock access to tuition-free programs and exclusive scholarships tailored to empower your success. Scholarships are limited, so take the first step today!</p>

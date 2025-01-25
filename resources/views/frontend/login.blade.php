@@ -51,13 +51,13 @@
         </div>
         <div class="auth-right py-40 px-24 flex-center flex-column">
             <div class="auth-right__inner mx-auto w-100">
-                <a href="{{ url('/admin/dashboard') }}" class="auth-right__logo">
+                <a href="{{ url('/') }}" class="auth-right__logo">
                     <img src="assets-user/images/logo/logo1.png" alt="">
                 </a>
                 @include('include.success')
                 @include('include.warning')
                 @include('include.error')
-                <h2 class="mb-8">Welcome Back! &#128075;</h2>
+                <h2 class="mb-8">Welcome! &#128075;</h2>
                 <p class="text-gray-600 text-15 mb-32">Please sign in to our community of learners and explore various courses</p>
 
                 <form method="post" action="{{ url('/sigin') }}">
@@ -65,7 +65,7 @@
                     <div class="mb-24">
                         <label for="fname" class="form-label mb-8 h6">Email Address</label>
                         <div class="position-relative">
-                            <input type="text" class="form-control py-11 ps-40" name="email"
+                            <input type="email" class="form-control py-11 ps-40" name="email"
                                 placeholder="Enter Email">
                             <span class="position-absolute top-50 translate-middle-y ms-16 text-gray-600 d-flex"><i
                                     class="ph ph-envelope"></i></span>
@@ -76,12 +76,12 @@
                         <div class="position-relative">
                             <input type="password" class="form-control py-11 ps-40" name="password"
                                 placeholder="Enter Current Password">
-                            <span
-                                class="toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y ph ph-eye-slash"
-                                id="#current-password"></span>
                             <span class="position-absolute top-50 translate-middle-y ms-16 text-gray-600 d-flex"><i
                                     class="ph ph-lock"></i></span>
                         </div>
+                    </div>
+                    <div class="mb-32 flex-between flex-wrap gap-8">
+                        <a href="{{ url('/forget-password') }}" class="text-main-600 hover-text-decoration-underline text-15 fw-medium">Forgot Password?</a>
                     </div>
                     <button type="submit" class="btn btn-main rounded-pill w-100">Sign In</button>
                     <p class="mt-32 text-gray-600 text-center">New on our platform?

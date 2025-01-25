@@ -3,10 +3,17 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendSupport;
+use App\Models\Profile;
+use App\Models\Quiz;
+use App\Models\QuizScore;
 use App\Models\Review;
 use App\Models\Scholarship;
+use App\Models\Skill_assessment;
+use App\Models\UserScore;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserPostController extends Controller
 {
@@ -85,26 +92,119 @@ class UserPostController extends Controller
     }
 
 
-     // Save Review
-     public function saveticket(Request $request)
-     {
-         // Validation
-         $this->validate($request, [
-             'subject' => 'required',
-             'comment' => 'required',
-         ]);
- 
-         $user = Auth::user();
-         // Save Record into Review DB
-         $review = new Review();
-         $review->user_id = $user->id;
-         $review->subject = $request->input('subject');
-         $review->comment = $request->input('comment');
-         $review->status = 0;
-         $review->save();
- 
-         \Session::flash('Success_message', 'Ticket Submitted Successfully');
- 
-         return back();
-     }
+    // Save Review
+    public function saveticket(Request $request)
+    {
+        // Validation
+        $this->validate($request, [
+            'subject' => 'required',
+            'comment' => 'required',
+        ]);
+
+        $user = Auth::user();
+        // Save Record into Review DB
+        $review = new Review();
+        $review->user_id = $user->id;
+        $review->subject = $request->input('subject');
+        $review->comment = $request->input('comment');
+        $review->status = 0;
+        $review->save();
+
+        $this->email = ['support@japademy.io'];
+
+        Mail::to($this->email)->send(new SendSupport($review));
+
+        \Session::flash('Success_message', 'Ticket Submitted Successfully');
+
+        return back();
+    }
+
+
+    public function submitAnswers(Request $request)
+    {
+        $responses = $request->input('responses');
+        $totalScore = 0;
+    
+        foreach ($responses as $questionId => $selectedOption) {
+            $question = Skill_assessment::find($questionId);
+    
+            $scorePointField = match ($selectedOption) {
+                'option' => 'scorepoint1',
+                'option2' => 'scorepoint2',
+                'option3' => 'scorepoint3',
+                'option4' => 'scorepoint4',
+                'option5' => 'scorepoint5',
+                default => 0,
+            };
+    
+            $points = $question->$scorePointField ?? 0;
+            $totalScore += $points;
+        }
+    
+        $level = '';
+        if ($totalScore <= 12) {
+            $level = 'Beginner';
+        } elseif ($totalScore <= 20) {
+            $level = 'Intermediate';
+        } elseif ($totalScore <= 30) {
+            $level = 'Advanced';
+        } elseif ($totalScore <= 39) {
+            $level = 'Expert';
+        } else {
+            $level = 'Genius';
+        }
+    
+        // Fetch the profile using the user_id
+        $user = Auth::user();
+        $profile = Profile::where('user_id', $user->id)->first();
+    
+        // Store the user's score in the UserScore table
+        UserScore::create([
+            'user_id' => Auth::id(),
+            'score' => $totalScore,
+        ]);
+    
+        // Check if profile exists and update the level
+        if ($profile) {
+            $profile->level = $level;
+            $profile->save();
+        }
+    
+        // Redirect to the result page with the stored data
+        return redirect()->route('assessment.result');
+    }
+    
+
+
+
+    public function submitquiz(Request $request)
+    {
+        $responses = $request->input('responses');
+        $totalScore = 0;
+
+        foreach ($responses as $questionId => $selectedOption) {
+            $question = Quiz::find($questionId);
+
+            $scorePointField = match ($selectedOption) {
+                'option' => 'scorepoint1',
+                'option2' => 'scorepoint2',
+                'option3' => 'scorepoint3',
+                'option4' => 'scorepoint4',
+                'option5' => 'scorepoint5',
+                default => 0,
+            };
+
+            $points = $question->$scorePointField ?? 0;
+            $totalScore += $points;
+        }
+
+        // Store the user's score in the UserScore table
+        $userScore = QuizScore::create([
+            'user_id' => Auth::id(),
+            'score' => $totalScore,
+        ]);
+
+        // Redirect to the result page with the stored data
+        return redirect()->route('quiz.result');
+    }
 }

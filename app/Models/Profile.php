@@ -9,8 +9,13 @@ class Profile extends Model
 {
     use HasFactory;
 
+     // Add 'level' to the fillable property
+
+    protected $fillable = ['fname', 'lname', 'phone', 'address', 'user_id'];
+
+
     public function user()
     {
-    	return $this->hasMany('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

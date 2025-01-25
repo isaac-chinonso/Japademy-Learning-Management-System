@@ -25,16 +25,16 @@ Support || JapaDemy
     <div class="card overflow-hidden py-14 px-14">
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table id="example" class="table table-striped" style="width: 100%;">
+                <table class="table table-striped table-bordered zero-configuration">
                     <thead>
                         <tr>
-                            <th class="h6 text-gray-300">S/N</th>
-                            <th class="h6 text-gray-300">Fullname</th>
-                            <th class="h6 text-gray-300">Email</th>
-                            <th class="h6 text-gray-300">Subject</th>
-                            <th class="h6 text-gray-300">Comment</th>
-                            <th class="h6 text-gray-300">Status</th>
-                            <th class="h6 text-gray-300">Actions</th>
+                            <th>S/N</th>
+                            <th>Fullname</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Comment</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>

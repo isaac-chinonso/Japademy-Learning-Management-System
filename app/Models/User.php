@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'activated',
+        'referral_code',
+        'role_id',
+        'status',
     ];
 
     /**
@@ -65,5 +68,20 @@ class User extends Authenticatable
     public function submittedtask()
     {
         return $this->hasMany('App\Models\Submittedtask');
+    }
+
+    public function userscores()
+    {
+        return $this->hasMany('App\Models\UserScore');
+    }
+
+    public function quizscores()
+    {
+        return $this->hasMany('App\Models\QuizScore');
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(Referral::class, 'referrer_email', 'email');
     }
 }

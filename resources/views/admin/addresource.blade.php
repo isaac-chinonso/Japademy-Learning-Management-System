@@ -53,7 +53,7 @@ Add Resource || JapaDemy
                             </div>
                             <div class="col-sm-12">
                                 <label class="form-label"> Description <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="description" placeholder="Description"></textarea>
+                                <textarea class="form-control" rows="10" cols="50" name="description" placeholder="Description"></textarea>
                             </div>
                         </div>
                     </div>

@@ -14,13 +14,13 @@ Contact || JapaDemy
                         <h3 class="ep-breadcrumbs__title">Contact</h3>
                         <ul class="ep-breadcrumbs__menu">
                             <li>
-                                <a href="{{ url('/admin/dashboard') }}">Home</a>
+                                <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li>
                                 <i class="fi-bs-angle-right"></i>
                             </li>
                             <li class="active">
-                                <a href="contact.html">Contact</a>
+                                <a href="#">Contact</a>
                             </li>
                         </ul>
                     </div>

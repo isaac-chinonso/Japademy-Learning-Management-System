@@ -25,16 +25,16 @@ Orders || JapaDemy
     <div class="card overflow-hidden py-14 px-14">
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table id="example" class="table table-striped" style="width: 100%;">
+                <table class="table table-striped table-bordered zero-configuration">
                     <thead>
                         <tr>
-                            <th class="h6 text-gray-300">S/N</th>
-                            <th class="h6 text-gray-300">Fullname</th>
-                            <th class="h6 text-gray-300">Transaction ID</th>
-                            <th class="h6 text-gray-300">Course</th>
-                            <th class="h6 text-gray-300">Amount</th>
-                            <th class="h6 text-gray-300">Status</th>
-                            <th class="h6 text-gray-300">Date</th>
+                            <th>S/N</th>
+                            <th>Fullname</th>
+                            <th>Transaction ID</th>
+                            <th>Course</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,7 +59,7 @@ Orders || JapaDemy
                         <?php $number++; ?>
                         @endforeach
                     </tbody>
-                   
+
                 </table>
             </div>
         </div>

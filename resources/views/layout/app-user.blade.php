@@ -53,7 +53,7 @@
                 class="ph ph-x"></i></button>
         <!-- sidebar close btn -->
 
-        <a href="index.html" class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
+        <a href="{{ url('/') }}" class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
             <img src="../assets-user/images/logo/logo1.png" alt="Logo">
         </a>
 
@@ -66,16 +66,30 @@
                             <span class="text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-menu__item">
-                        <a href="{{ url('/learner/courses') }}" class="sidebar-menu__link">
+
+                    <li class="sidebar-menu__item has-dropdown">
+                        <a href="javascript:void(0)" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-graduation-cap"></i></span>
-                            <span class="text">Courses</span>
+                            <span class="text">Careers</span>
                         </a>
+                        <!-- Submenu start -->
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ route('learnertechcourses') }}" class="sidebar-submenu__link"> Tech </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ route('learnernursingcourses') }}" class="sidebar-submenu__link">Nursing </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ route('learnercategories') }}" class="sidebar-submenu__link"> Recommended </a>
+                            </li>
+                        </ul>
+                        <!-- Submenu End -->
                     </li>
                     <li class="sidebar-menu__item">
-                        <a href="assignment.html" class="sidebar-menu__link">
+                        <a href="{{ url('/learner/quiz') }}" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-clipboard-text"></i></span>
-                            <span class="text">Assignments</span>
+                            <span class="text">Quiz</span>
                         </a>
                     </li>
                     <li class="sidebar-menu__item">
@@ -91,7 +105,7 @@
                         </a>
                     </li>
                     <li class="sidebar-menu__item">
-                        <a href="#" class="sidebar-menu__link">
+                        <a href="{{ url('/learner/affiliate') }}" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-users-three"></i></span>
                             <span class="text">Affiliates</span>
                         </a>
@@ -131,7 +145,7 @@
                         class="ph ph-list"></i></button>
                 <!-- Toggle Button End -->
 
-                <h4>{{ Auth::user()->profile->first()->lname }} Dashboard – let’s jump back in.</h4>
+                <h4>{{ Auth::user()->profile->first()->fname }} Dashboard – let’s jump back in.</h4>
             </div>
 
             <div class="flex-align gap-16">

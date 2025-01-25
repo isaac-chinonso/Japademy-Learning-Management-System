@@ -44,50 +44,26 @@ Dashboard || JapaDemy
         <div class="col-lg-9">
             <!-- Widgets Start -->
             <div class="row gy-4">
-                <div class="col-xxl-3 col-sm-6">
+                <div class="col-xxl-6 col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mb-2">{{ $allcourses }}</h4>
                             <span class="text-gray-600">Available Courses</span>
                             <div class="flex-between gap-8 mt-16">
-                                <span class="flex-shrink-0 w-48 h-48 flex-center rounded-circle bg-main-600 text-white text-2xl"><i
+                                <span class="flex-shrink-0 w-48 h-48 flex-center rounded-circle bg-warning-600 text-white text-2xl"><i
                                         class="ph-fill ph-book-open"></i></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="mb-2">0</h4>
-                            <span class="text-gray-600">Earned Certificate</span>
-                            <div class="flex-between gap-8 mt-16">
-                                <span class="flex-shrink-0 w-48 h-48 flex-center rounded-circle bg-main-two-600 text-white text-2xl"><i
-                                        class="ph-fill ph-certificate"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-sm-6">
+                <div class="col-xxl-6 col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mb-2">{{ $activecourses }}</h4>
-                            <span class="text-gray-600">Registered Courses</span>
+                            <span class="text-gray-600">Courses for you</span>
                             <div class="flex-between gap-8 mt-16">
                                 <span class="flex-shrink-0 w-48 h-48 flex-center rounded-circle bg-purple-600 text-white text-2xl">
                                     <i class="ph-fill ph-graduation-cap"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="mb-2">₦0</h4>
-                            <span class="text-gray-600">Total Earned</span>
-                            <div class="flex-between gap-8 mt-16">
-                                <span class="flex-shrink-0 w-48 h-48 flex-center rounded-circle bg-warning-600 text-white text-2xl"><i
-                                        class="ph-fill ph-users-three"></i></span>
                             </div>
                         </div>
                     </div>

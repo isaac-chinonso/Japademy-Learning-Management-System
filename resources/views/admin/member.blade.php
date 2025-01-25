@@ -1,4 +1,4 @@
-@extends('layout.app-admin')
+@extends('layout.app-admin1')
 @section('title')
 Members || JapaDemy
 @endsection
@@ -23,19 +23,20 @@ Members || JapaDemy
     <div class="card overflow-hidden py-14 px-14">
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table id="example" class="table table-striped" style="width: 100%;">
+                <table class="table table-striped table-bordered zero-configuration">
                     <thead>
                         <tr>
-                            <th class="h6 text-gray-300">S/N</th>
-                            <th class="h6 text-gray-300">Fullname</th>
-                            <th class="h6 text-gray-300">Email</th>
-                            <th class="h6 text-gray-300">Phone Number</th>
-                            <th class="h6 text-gray-300">Date of Birth</th>
-                            <th class="h6 text-gray-300">Gender</th>
-                            <th class="h6 text-gray-300">Level</th>
-                            <th class="h6 text-gray-300">Location</th>
-                            <th class="h6 text-gray-300">Status</th>
-                            <th class="h6 text-gray-300">Actions</th>
+                            <th>S/N</th>
+                            <th>Fullname</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th>Level</th>
+                            <th>Location</th>
+                            <th>Affiliate</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +51,8 @@ Members || JapaDemy
                             <td><span class="h6 mb-0 fw-medium text-gray-300">{{ $use->profile->first()->gender}}</span></td>
                             <td><span class="h6 mb-0 fw-medium text-gray-300">{{ $use->profile->first()->level}}</span></td>
                             <td><span class="h6 mb-0 fw-medium text-gray-300">{{ $use->profile->first()->address}}</span></td>
+
+                            <td><span class="h6 mb-0 fw-medium text-gray-300">{{ $use->referrals_count }}</span></td>
                             <td><span class="h6 mb-0 fw-medium text-gray-300 py-10">
                                     @if( $use->status == 0)
                                     <span class="alert alert-danger rounded-pill py-5 px-14">Unactivated</span>
@@ -59,11 +62,11 @@ Members || JapaDemy
                                 </span>
                             </td>
                             <td><span class="h6 mb-0 fw-medium text-gray-300">
-                                @if( $use->status == 0)
-                                <button type="submit" class="bg-main-50 py-2 px-14 rounded-pill hover-bg-main-600 hover-text-white" data-bs-toggle="modal" data-bs-target="#activate{{ $use->id }}">Activate</button>
-                                @elseif($use->status == 1)
-                                <button type="submit" class="bg-main-50 py-2 px-14 rounded-pill hover-bg-main-600 hover-text-white" data-bs-toggle="modal" data-bs-target="#deactivate{{ $use->id }}">Deactivate</button>
-                                @endif
+                                    @if( $use->status == 0)
+                                    <button type="submit" class="bg-main-50 py-2 px-14 rounded-pill hover-bg-main-600 hover-text-white" data-bs-toggle="modal" data-bs-target="#activate{{ $use->id }}">Activate</button>
+                                    @elseif($use->status == 1)
+                                    <button type="submit" class="bg-main-50 py-2 px-14 rounded-pill hover-bg-main-600 hover-text-white" data-bs-toggle="modal" data-bs-target="#deactivate{{ $use->id }}">Deactivate</button>
+                                    @endif
                                 </span>
                             </td>
 

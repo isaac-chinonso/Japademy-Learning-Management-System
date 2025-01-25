@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('requirement');
             $table->string('coverimage');
             $table->text('description');
+            $table->string('videourl');
             $table->string('slug');
             $table->boolean('status');
             $table->timestamps();

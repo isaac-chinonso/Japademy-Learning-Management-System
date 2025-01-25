@@ -35,15 +35,6 @@
 </head>
 
 <body class="ep-magic-cursor">
-  <!-- Start Preloader  -->
-  <div id="preloader">
-    <div id="ep-preloader" class="ep-preloader">
-      <div class="animation-preloader">
-        <div class="spinner"></div>
-      </div>
-    </div>
-  </div>
-  <!-- End Preloader -->
 
   <!-- Start Cursor To Top  -->
   <div class="cursor"></div>
@@ -84,17 +75,17 @@
           <!-- offcanvas-menu start -->
           <nav id="offcanvas-menu" class="navigation offcanvas-menu">
             <ul id="nav mobile-nav" class="list-none offcanvas-men-list">
-              <li class="active"><a href="#">Home </a></li>
+              <li class="active"><a href="{{ url('/') }}">Home </a></li>
 
-              <li> <a href="{{ url('/admin/dashboard') }}#about">About us </a></li>
+              <li> <a href="{{ url('/') }}#about">About us </a></li>
 
-              <li><a href="{{ url('/admin/dashboard') }}#courses">Explore Courses </a></li>
+              <li><a href="{{ url('/') }}#courses">Learn a Skill </a></li>
 
-              <li><a href="{{ url('/admin/dashboard') }}#testimonial">Testimonial </a></li>
+              <li><a href="{{ url('/') }}#testimonial">Land a Job </a></li>
 
-              <li><a href="{{ url('/admin/dashboard') }}#faq">FAQ </a></li>
+              <li><a href="{{ url('/') }}#faq">Hire a Talent </a></li>
               <li>
-                <a href="{{ url('/contact-us') }}">Contact</a>
+                <a href="{{ url('/contact-us') }}"> Apply for Scholarship </a>
               </li>
             </ul>
           </nav>
@@ -113,7 +104,7 @@
           <div class="row align-items-center">
             <div class="col-lg-2 col-6">
               <div class="ep-logo">
-                <a href="{{ url('/admin/dashboard') }}">
+                <a href="{{ url('/') }}">
                   <img src="assets-main/images/logo1.png" alt="logo" />
                 </a>
               </div>
@@ -122,21 +113,22 @@
               <div class="ep-header__inner-right">
                 <nav class="ep-header__navigation">
                   <ul class="ep-header__menu ep-header__menu--style2">
-                    <li class="active"><a href="#">Home </a></li>
+                    <li class="active"><a href="{{ url('/') }}">Home </a></li>
 
-                    <li> <a href="{{ url('/admin/dashboard') }}#about">About us </a></li>
+                    <li> <a href="{{ url('/') }}#about">About us </a></li>
 
-                    <li><a href="{{ url('/admin/dashboard') }}#courses">Explore Courses </a></li>
+                    <li><a href="{{ url('/') }}#courses">Learn a Skill </a></li>
 
-                    <li><a href="{{ url('/admin/dashboard') }}#testimonial">Testimonial </a></li>
+                    <li><a href="{{ url('/') }}#testimonial">Land a Job </a></li>
 
-                    <li><a href="{{ url('/admin/dashboard') }}#faq">FAQ </a></li>
-
-                    <li> <a href="contact.html">Contact us</a></li>
+                    <li><a href="{{ url('/') }}#faq">Hire a Talent </a></li>
+                    <li>
+                      <a href="{{ url('/contact-us') }}"> Apply for Scholarship </a>
+                    </li>
                   </ul>
                 </nav>
                 <div class="ep-header__btn">
-                  <a href="#" class="ep-btn ep5-bg">Get Started Now <i class="fi fi-rs-arrow-small-right"></i>
+                  <a href="{{ url('/login') }}" class="ep-btn ep5-bg">Get Started Now <i class="fi fi-rs-arrow-small-right"></i>
                   </a>
                 </div>
               </div>
@@ -155,47 +147,53 @@
     </div>
   </header>
   <!-- End Header Area -->
-   
+
   @yield('content')
 
   <!-- Start Footer Area -->
   <footer class="ep-footer position-relative">
-        <div class="container ep-container">
-          <div class="ep-footer__bottom">
-            <div class="row">
-              <div class="col-lg-6 col-12">
-                <div class="ep-footer__copyright">
-                  <p>
-                    ©
-                    <a target="_blank" href="#">JapaDemy</a>
-                    2024 | All Rights Reserved
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-6 col-12">
-                <div class="ep-footer__bottom-link">
-                  <ul>
-                    <li>
-                      <a href="#">Terms & Condition</a>
-                    </li>
-                    <li>
-                      <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contact Us</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+    <div class="container ep-container">
+      <div class="ep-footer__bottom">
+        <div class="row">
+          <div class="col-lg-4 col-12">
+            <div class="ep-footer__copyright">
+              <p>
+                ©
+                <a target="_blank" href="#">JapaDemy</a>
+                2024 | All Rights Reserved
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-8 col-12">
+            <div class="ep-footer__bottom-link">
+              <ul>
+                <li>
+                  <a href="#">Migration Hub</a>
+                </li>
+                <li>
+                  <a href="#">Career Opportunities</a>
+                </li>
+                <li>
+                  <a href="#">Courses</a>
+                </li>
+                <li>
+                  <a href="{{ url('/news-and-updates') }}">Insights and Updates</a>
+                </li>
+                <li>
+                  <a href="{{ url('/contact-us') }}">Support</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="ep-footer__pattern">
-          <img src="assets-main/images/footer/footer-pattern.png" alt="footer-pattern" />
-        </div>
-      </footer>
-      <!-- End Footer Area -->
+      </div>
     </div>
+    <div class="ep-footer__pattern">
+      <img src="assets-main/images/footer/footer-pattern.png" alt="footer-pattern" />
+    </div>
+  </footer>
+  <!-- End Footer Area -->
+  </div>
   </div>
 
   <!-- Jquery JS -->

@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="../assets-user/css/file-upload.css">
     <!-- file upload -->
     <link rel="stylesheet" href="../assets-user/css/plyr.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
     <!-- full calendar -->
     <link rel="stylesheet" href="../assets-user/css/full-calendar.css">
     <!-- jquery Ui -->
@@ -30,6 +28,8 @@
     <link rel="stylesheet" href="../assets-user/css/jquery-jvectormap-2.0.5.css">
     <!-- Main css -->
     <link rel="stylesheet" href="../assets-user/css/main.css">
+    <link href="../assets-user/tables/css/datatable/datatables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../assets-user/tables/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                 class="ph ph-x"></i></button>
         <!-- sidebar close btn -->
 
-        <a href="{{ url('/admin/dashboard') }}" class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
+        <a href="{{ url('/') }}" class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
             <img src="../assets-user/images/logo/logo1.png" alt="Logo">
         </a>
 
@@ -67,6 +67,22 @@
                     </li>
                     <li class="sidebar-menu__item has-dropdown">
                         <a href="javascript:void(0)" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-file"></i></span>
+                            <span class="text">Blog</span>
+                        </a>
+                        <!-- Submenu start -->
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/blog-category') }}" class="sidebar-submenu__link"> Category </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/blog') }}" class="sidebar-submenu__link"> Blog Post</a>
+                            </li>
+                        </ul>
+                        <!-- Submenu End -->
+                    </li>
+                    <li class="sidebar-menu__item has-dropdown">
+                        <a href="javascript:void(0)" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-graduation-cap"></i></span>
                             <span class="text">Courses</span>
                         </a>
@@ -78,17 +94,40 @@
                             <li class="sidebar-submenu__item">
                                 <a href="{{ url('/admin/courses') }}" class="sidebar-submenu__link"> Courses </a>
                             </li>
+                        </ul>
+                        <!-- Submenu End -->
+                    </li>
+                    <li class="sidebar-menu__item has-dropdown">
+                        <a href="javascript:void(0)" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-clipboard-text"></i></span>
+                            <span class="text">Skill Assessments</span>
+                        </a>
+                        <!-- Submenu start -->
+                        <ul class="sidebar-submenu">
                             <li class="sidebar-submenu__item">
-                                <a href="{{ url('/admin/lesson') }}" class="sidebar-submenu__link"> Lessons </a>
+                                <a href="{{ url('/admin/skill-assessment') }}" class="sidebar-submenu__link"> Questions </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/skill-assessment-score') }}" class="sidebar-submenu__link">User Response </a>
                             </li>
                         </ul>
                         <!-- Submenu End -->
                     </li>
-                    <li class="sidebar-menu__item">
-                        <a href="assignment.html" class="sidebar-menu__link">
+                    <li class="sidebar-menu__item has-dropdown">
+                        <a href="javascript:void(0)" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-clipboard-text"></i></span>
-                            <span class="text">Assignments</span>
+                            <span class="text">Quiz</span>
                         </a>
+                        <!-- Submenu start -->
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/quiz') }}" class="sidebar-submenu__link"> Questions </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/quiz-score') }}" class="sidebar-submenu__link">User Response </a>
+                            </li>
+                        </ul>
+                        <!-- Submenu End -->
                     </li>
                     <li class="sidebar-menu__item">
                         <a href="{{ url('/admin/orders') }}" class="sidebar-menu__link">
@@ -112,6 +151,12 @@
                         <a href="{{ url('/admin/members') }}" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-users-three"></i></span>
                             <span class="text">Members</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu__item">
+                        <a href="{{ url('/admin/affiliate') }}" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-users-three"></i></span>
+                            <span class="text">Affiliates</span>
                         </a>
                     </li>
 
@@ -195,14 +240,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
+    <script src="../assets-user/tables/js/common.min.js"></script>
+    <script src="../assets-user/tables/js/modernizr-3.6.0.min.js"></script>
+    <script src="../assets-user/tables/js/custom.min.js"></script>
+    <script src="../assets-user/tables/js/jquery.datatables.min.js"></script>
+    <script src="../assets-user/tables/js/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="../assets-user/tables/js/datatable-init/datatable-basic.min.js"></script>
+
+
     <!-- Phosphor Js -->
     <script src="../assets-user/js/phosphor-icon.js"></script>
     <!-- file upload -->
     <script src="../assets-user/js/file-upload.js"></script>
     <!-- file upload -->
     <script src="../assets-user/js/plyr.js"></script>
-    <!-- dataTables -->
-    <script src="cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
     <!-- full calendar -->
     <script src="../assets-user/js/full-calendar.js"></script>
     <!-- jQuery UI -->
@@ -218,7 +270,26 @@
 
     <!-- main js -->
     <script src="../assets-user/js/main.js"></script>
-
+    <script>
+        $(function() {
+            $("#addMore").click(function(e) {
+                e.preventDefault();
+                $("#fieldList").append("<hr><div class='row'>");
+                $("#fieldList").append("<div class='col-md-12'><label class='form-label'>Question <span class='text-danger'>*</span></label><textarea class='form-control' name='question[]' placeholder='Enter Question'></textarea></div>");
+                $("#fieldList").append("<div class='col-md-5'><label class='form-label'>Option A <span class='text-danger'>*</span></label><input type='text' class='form-control' name='option1[]' placeholder='Enter Option A'></div>");
+                $("#fieldList").append("<div class='col-md-1'><label class='form-label'>Score <span class='text-danger'>*</span></label><input type='text' class='form-control' name='scorepoint1[]'></div>");
+                $("#fieldList").append("<div class='col-md-5'><label class='form-label'>Option B <span class='text-danger'>*</span></label><input type='text' class='form-control' name='option2[]' placeholder='Enter Option B'></div>");
+                $("#fieldList").append("<div class='col-md-1'><label class='form-label'>Score<span class='text-danger'>*</span></label><input type='text' class='form-control' name='scorepoint2[]'></div>");
+                $("#fieldList").append("<div class='col-md-5'><label class='form-label'>Option C <span class='text-danger'>*</span></label><input type='text' class='form-control' name='option3[]' placeholder='Enter Option C'></div>");
+                $("#fieldList").append("<div class='col-md-1'><label class='form-label'>Score <span class='text-danger'>*</span></label><input type='text' class='form-control' name='scorepoint3[]'></div>");
+                $("#fieldList").append("<div class='col-md-5'><label class='form-label'>Option D <span class='text-danger'>*</span></label><input type='text' class='form-control' name='option4[]' placeholder='Enter Option D'></div>");
+                $("#fieldList").append("<div class='col-md-1'><label class='form-label'>Score <span class='text-danger'>*</span></label><input type='text' class='form-control' name='scorepoint4[]'></div>");
+                $("#fieldList").append("<div class='col-md-5'><label class='form-label'>Option E <span class='text-danger'>*</span></label><input type='text' class='form-control' name='option5[]' placeholder='Enter Option E'></div>");
+                $("#fieldList").append("<div class='col-md-1'><label class='form-label'>Score<span class='text-danger'>*</span></label><input type='text' class='form-control' name='scorepoint5[]'></div>");
+                $("#fieldList").append("</div>");
+            });
+        });
+    </script>
 
 
 </body>

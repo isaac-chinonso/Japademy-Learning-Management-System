@@ -61,6 +61,7 @@ Add Course || JapaDemy
                                 <select class="form-control" name="level">
                                     <option selected disabled>Choose Course level</option>
                                     <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
                                     <option value="Advanced">Advanced</option>
                                 </select>
                             </div>
@@ -74,12 +75,12 @@ Add Course || JapaDemy
                                 <input type="file" class="form-control" name="coverimage">
                             </div>
                             <div class="col-sm-12">
-                                <label class="form-label">Course Requirement <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="requirement" placeholder="Course Requirement"></textarea>
+                                <label class="form-label">Meta Description <span class="text-danger">*</span></label>
+                                <textarea class="form-control" rows="10" cols="50" name="requirement" placeholder="Course Meta Description"></textarea>
                             </div>
                             <div class="col-sm-12">
                                 <label class="form-label">Course Description <span class="text-danger">*</span></label>
-                                <textarea class="form-control" name="description" placeholder="Course Description"></textarea>
+                                <textarea class="form-control" rows="10" cols="50" name="description" placeholder="Course Description"></textarea>
                             </div>
                         </div>
                     </div>

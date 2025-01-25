@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Order;
+use App\Models\Referral;
 use App\Models\Resource;
 use App\Models\Review;
+use App\Models\Skill_assessment;
 use App\Models\User;
+use App\Models\UserScore;
+
 use Illuminate\Http\Request;
 
 class AdminPageController extends Controller
@@ -22,6 +28,7 @@ class AdminPageController extends Controller
         $data['allcourses'] = Course::where('status', 1)->count();
         $data['allcoursecategory'] = Category::where('status', 1)->count();
         $data['totalsales'] = Order::where('status', 1)->sum('amount');
+        $data['allblogpost'] = Blog::where('status', '=', 1)->count();
         return view('admin.dashboard', $data);
     }
 
@@ -38,7 +45,7 @@ class AdminPageController extends Controller
 
     public function courses()
     {
-        $data['course'] = Course::where('status', 1)->get();
+        $data['course'] = Course::all();
         $data['coursecatgeory'] = Category::get();
         return view('admin.course', $data);
     }
@@ -49,9 +56,9 @@ class AdminPageController extends Controller
         return view('admin.addcourse', $data);
     }
 
-    public function editcourse($id)
+    public function editcourse($slug)
     {
-        $data['editcourse'] = Course::where('id', '=', $id)->first();
+        $data['editcourse'] = Course::where('slug', '=', $slug)->first();
         $data['coursecatgeory'] = Category::get();
         return view('admin.editcourse', $data);
     }
@@ -78,7 +85,12 @@ class AdminPageController extends Controller
 
     public function users()
     {
-        $data['allusers'] = User::where('role_id', 2)->get();
+        $data['allusers'] = User::withCount([
+            'referrals' => function ($query) {
+                $query->whereNotNull('referred_email'); // Optional condition for counting
+            }
+        ])->where('role_id', 2)->get();
+    
         return view('admin.member', $data);
     }
 
@@ -97,5 +109,46 @@ class AdminPageController extends Controller
     {
         $data['orders'] = Order::get();
         return view('admin.orders', $data);
+    }
+
+    public function blog()
+    {
+        $data['blogpost'] = Blog::where('status', '=', 1)->get();
+        return view('admin.blogpost', $data);
+    }
+
+    public function addblog()
+    {
+        $data['categories'] = BlogCategory::get();
+        return view('admin.add_blog', $data);
+    }
+
+    public function editblog($slug)
+    {
+        $data['blogdetails'] = Blog::where('slug', '=', $slug)->first();
+        $data['blogpost'] = Blog::where('status', '=', 1)->inRandomOrder()->simplePaginate(9);
+        $data['categories'] = BlogCategory::get();
+        return view('admin.editblog', $data);
+    }
+
+    public function affiliate()
+    {
+        $data['allrefferal'] = Referral::all();
+        return view('admin.affiliate', $data);
+    }
+
+
+    public function blogdetails($slug)
+    {
+        $data['blogdetails'] = Blog::where('slug', '=', $slug)->first();
+        $data['blogpost'] = Blog::where('status', '=', 1)->inRandomOrder()->simplePaginate(9);
+        $data['categories'] = BlogCategory::get();
+        return view('admin.blogdetails', $data);
+    }
+
+    public function blogcategory()
+    {
+        $data['categories'] = BlogCategory::get();
+        return view('admin.blog_category', $data);
     }
 }

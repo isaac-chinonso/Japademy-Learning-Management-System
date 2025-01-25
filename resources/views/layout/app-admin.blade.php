@@ -53,7 +53,7 @@
                 class="ph ph-x"></i></button>
         <!-- sidebar close btn -->
 
-        <a href="{{ url('/admin/dashboard') }}" class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
+        <a href="{{ url('/') }}" class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
             <img src="../assets-user/images/logo/logo1.png" alt="Logo">
         </a>
 
@@ -68,6 +68,22 @@
                     </li>
                     <li class="sidebar-menu__item has-dropdown">
                         <a href="javascript:void(0)" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-file"></i></span>
+                            <span class="text">Blog</span>
+                        </a>
+                        <!-- Submenu start -->
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/blog-category') }}" class="sidebar-submenu__link"> Category </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/blog') }}" class="sidebar-submenu__link"> Blog Post</a>
+                            </li>
+                        </ul>
+                        <!-- Submenu End -->
+                    </li>
+                    <li class="sidebar-menu__item has-dropdown">
+                        <a href="javascript:void(0)" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-graduation-cap"></i></span>
                             <span class="text">Courses</span>
                         </a>
@@ -79,17 +95,41 @@
                             <li class="sidebar-submenu__item">
                                 <a href="{{ url('/admin/courses') }}" class="sidebar-submenu__link"> Courses </a>
                             </li>
+                        </ul>
+                        <!-- Submenu End -->
+                    </li>
+                    <li class="sidebar-menu__item has-dropdown">
+                        <a href="javascript:void(0)" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-clipboard-text"></i></span>
+                            <span class="text">Skill Assessments</span>
+                        </a>
+                        <!-- Submenu start -->
+                        <ul class="sidebar-submenu">
                             <li class="sidebar-submenu__item">
-                                <a href="{{ url('/admin/lesson') }}" class="sidebar-submenu__link"> Lessons </a>
+                                <a href="{{ url('/admin/skill-assessment') }}" class="sidebar-submenu__link"> Questions </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/skill-assessment-score') }}" class="sidebar-submenu__link">User Response </a>
                             </li>
                         </ul>
                         <!-- Submenu End -->
                     </li>
-                    <li class="sidebar-menu__item">
-                        <a href="assignment.html" class="sidebar-menu__link">
+
+                    <li class="sidebar-menu__item has-dropdown">
+                        <a href="javascript:void(0)" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-clipboard-text"></i></span>
-                            <span class="text">Assignments</span>
+                            <span class="text">Quiz</span>
                         </a>
+                        <!-- Submenu start -->
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/quiz') }}" class="sidebar-submenu__link"> Questions </a>
+                            </li>
+                            <li class="sidebar-submenu__item">
+                                <a href="{{ url('/admin/quiz-score') }}" class="sidebar-submenu__link">User Response </a>
+                            </li>
+                        </ul>
+                        <!-- Submenu End -->
                     </li>
                     <li class="sidebar-menu__item">
                         <a href="{{ url('/admin/orders') }}" class="sidebar-menu__link">
@@ -113,6 +153,13 @@
                         <a href="{{ url('/admin/members') }}" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-users-three"></i></span>
                             <span class="text">Members</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-menu__item">
+                        <a href="{{ url('/admin/affiliate') }}" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-users-three"></i></span>
+                            <span class="text">Affiliates</span>
                         </a>
                     </li>
 

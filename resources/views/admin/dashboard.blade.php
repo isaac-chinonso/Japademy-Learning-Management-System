@@ -13,7 +13,7 @@ Dashboard || JapaDemy
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mb-2">{{ $allcoursecategory }}</h4>
-                            <span class="text-gray-600">Total Category</span>
+                            <span class="text-gray-600">Total Course Category</span>
                             <div class="flex-between gap-8 mt-16">
                                 <span class="flex-shrink-0 w-48 h-48 flex-center rounded-circle bg-main-600 text-white text-2xl"><i
                                         class="ph-fill ph-bookmarks"></i></span>
@@ -24,11 +24,11 @@ Dashboard || JapaDemy
                 <div class="col-xxl-3 col-sm-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mb-2">{{ $allorders }}</h4>
-                            <span class="text-gray-600">Total Orders</span>
+                            <h4 class="mb-2">{{ $allblogpost }}</h4>
+                            <span class="text-gray-600">Total Blog Post</span>
                             <div class="flex-between gap-8 mt-16">
                                 <span class="flex-shrink-0 w-48 h-48 flex-center rounded-circle bg-main-two-600 text-white text-2xl"><i
-                                        class="ph-fill ph-shopping-cart"></i></span>
+                                        class="ph-fill ph-file"></i></span>
                             </div>
                         </div>
                     </div>

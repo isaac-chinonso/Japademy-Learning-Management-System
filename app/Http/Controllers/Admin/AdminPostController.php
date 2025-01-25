@@ -85,6 +85,8 @@ class AdminPostController extends Controller
     {
         // Delete Course Category
         $category = Category::where('id', $id)->first();
+        $file_path = public_path() . '/upload/' . $category->coverimage;
+        unlink($file_path);
         $category->delete();
 
         \Session::flash('Success_message', '✔ You Have Successfully Deleted Category');
@@ -142,21 +144,46 @@ class AdminPostController extends Controller
     // Delete Course
     public function deletecourse($id)
     {
-        Course::where(['id' => $id])
-            ->update(array('status' => 0));
+        $course = Course::where('id', $id)->first();
+        $file_path = public_path() . '/upload/' . $course->coverimage;
+        unlink($file_path);
+        $course->delete();
 
         \Session::flash('Success_message', 'Course Deleted Successfully');
 
         return back();
     }
 
-    // Update Course function
-    public function updatecourse(Request $request, $id)
+    public function activatecourse($id)
     {
-        $course = Course::find($id);
+        // Approve Course
+        Course::where(['id' => $id])
+            ->update(array('status' => 1));
+
+        \Session::flash('Success_message', 'Course Activated Successfully');
+
+        return back();
+    }
+
+    public function deactivatecourse($id)
+    {
+        // Approve Course
+        Course::where(['id' => $id])
+            ->update(array('status' => 0));
+
+        \Session::flash('Success_message', 'Course Deactivated Successfully');
+
+        return back();
+    }
+
+
+    // Update Course function
+    public function updatecourse(Request $request, $slug)
+    {
+        $course = Course::where('slug', $slug)->first();
         // Validation
         $this->validate($request, array(
-            'category_id' => 'required',
+           'category_id' => 'required',
             'title' => 'required',
             'amount' => 'required',
             'duration' => 'required',
@@ -165,7 +192,7 @@ class AdminPostController extends Controller
             'description' => 'required',
         ));
 
-        $course  = Course::find($id);
+        $course = Course::where('slug', $slug)->first();
         $course->category_id = $request->input('category_id');
         $course->title = $request->input('title');
         $course->amount = $request->input('amount');
@@ -198,64 +225,6 @@ class AdminPostController extends Controller
 
         return back();
     }
-
-    // Save Lessons
-    public function savelesson(Request $request)
-    {
-        // Validation
-        $this->validate($request, [
-            'course_id' => 'required',
-            'title' => 'required',
-            'videourl' => 'required',
-        ]);
-
-        // Save Record into Lesson DB
-        $lesson = new Lesson();
-        $lesson->course_id = $request->input('course_id');
-        $lesson->title = $request->input('title');
-        $lesson->videourl = $request->input('videourl');
-        $lesson->status = 1;
-        $lesson->save();
-
-        \Session::flash('Success_message', 'Lesson Added Successfully');
-
-        return back();
-    }
-
-    // Update Lesson function
-    public function updatelesson(Request $request, $id)
-    {
-        $lesson = Lesson::find($id);
-        // Validation
-        $this->validate($request, array(
-            'course_id' => 'required',
-            'title' => 'required',
-            'videourl' => 'required',
-        ));
-
-        $lesson = Lesson::find($id);
-
-        $lesson->course_id = $request->input('course_id');
-        $lesson->title = $request->input('title');
-        $lesson->videourl = $request->input('videourl');
-        $lesson->status = 1;
-        $lesson->save();
-
-        \Session::flash('Success_message', '✔ Lesson Updated Succeffully');
-
-        return back();
-    }
-
-    // Delete Lesson 
-    public function deletelesson($id)
-    {
-        $lesson = Lesson::find($id);
-        $lesson->delete();
-
-        \Session::flash('Success_message', 'Lesson Deleted Successfully');
-        return back();
-    }
-
 
     // Save Resource
     public function saveresources(Request $request)
@@ -328,5 +297,4 @@ class AdminPostController extends Controller
 
         return back();
     }
-
 }

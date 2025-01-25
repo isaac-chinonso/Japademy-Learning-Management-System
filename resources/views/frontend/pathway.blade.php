@@ -89,7 +89,7 @@
                         class="ph ph-list"></i></button>
                 <!-- Toggle Button End -->
 
-                <h4>{{ Auth::user()->profile->first()->lname }} Welcome – let’s jump back in.</h4>
+                <h4>{{ Auth::user()->profile->first()->fname }} Welcome – let’s jump back in.</h4>
             </div>
 
             <div class="flex-align gap-16">

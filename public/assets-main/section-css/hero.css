@@ -11,14 +11,17 @@
 }
 
 .ep-hero__title {
-    font-size: 70px;
+    font-size: 59px;
     font-weight: 700;
     line-height: 120%;
     margin-bottom: 34px;
 }
 
 .ep-hero__title span {
-    display: block;
+    background-color: #75008a;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 10px;
 }
 
 .ep-hero__title img {
